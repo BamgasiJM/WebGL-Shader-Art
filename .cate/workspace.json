@@ -1,0 +1,133 @@
+{
+  "version": 1,
+  "name": "WebGL",
+  "color": "",
+  "dockState": {
+    "zones": {
+      "left": {
+        "position": "left",
+        "visible": false,
+        "size": 260,
+        "layout": null
+      },
+      "right": {
+        "position": "right",
+        "visible": false,
+        "size": 260,
+        "layout": null
+      },
+      "bottom": {
+        "position": "bottom",
+        "visible": false,
+        "size": 240,
+        "layout": null
+      },
+      "center": {
+        "position": "center",
+        "visible": true,
+        "size": 0,
+        "layout": {
+          "type": "split",
+          "id": "427d8018-9b93-4b77-873f-cf764e68fb46",
+          "direction": "horizontal",
+          "children": [
+            {
+              "type": "tabs",
+              "id": "05e4f152-4140-4945-bd75-4edbb1a43a71",
+              "panelIds": [
+                "346612e0-a704-498a-b997-930ced654849",
+                "a690fb10-fad7-40fb-80cc-b1d254c80ef1"
+              ],
+              "activeIndex": 1
+            },
+            {
+              "type": "tabs",
+              "id": "8769f324-2561-4687-9cf6-f17fd7e6ecf4",
+              "panelIds": [
+                "87f4c5c5-1114-43a9-b95d-14086477e706"
+              ],
+              "activeIndex": 0
+            }
+          ],
+          "ratios": [
+            0.26522593320235754,
+            0.7347740667976425
+          ]
+        }
+      }
+    },
+    "locations": {
+      "346612e0-a704-498a-b997-930ced654849": {
+        "type": "dock",
+        "zone": "center",
+        "stackId": "05e4f152-4140-4945-bd75-4edbb1a43a71"
+      },
+      "a690fb10-fad7-40fb-80cc-b1d254c80ef1": {
+        "type": "dock",
+        "zone": "center",
+        "stackId": "05e4f152-4140-4945-bd75-4edbb1a43a71"
+      },
+      "87f4c5c5-1114-43a9-b95d-14086477e706": {
+        "type": "dock",
+        "zone": "center",
+        "stackId": "8769f324-2561-4687-9cf6-f17fd7e6ecf4"
+      }
+    }
+  },
+  "panels": {
+    "c10dc58b-08b0-4110-8aff-d10e65d48501": {
+      "type": "editor",
+      "title": "frag.glsl",
+      "filePath": "Shader_Art_00_test/shaders/frag.glsl"
+    },
+    "346612e0-a704-498a-b997-930ced654849": {
+      "type": "editor",
+      "title": "style.css",
+      "filePath": "Shader_Art_00_test/style.css"
+    },
+    "a690fb10-fad7-40fb-80cc-b1d254c80ef1": {
+      "type": "editor",
+      "title": "app.js",
+      "filePath": "Shader_Art_00_test/app.js"
+    },
+    "87f4c5c5-1114-43a9-b95d-14086477e706": {
+      "type": "canvas",
+      "title": "Canvas"
+    }
+  },
+  "canvases": {
+    "87f4c5c5-1114-43a9-b95d-14086477e706": {
+      "id": "87f4c5c5-1114-43a9-b95d-14086477e706",
+      "canvasNodes": {
+        "9f7d3fd9-0efd-4881-80c9-420bfdfc03fe": {
+          "id": "9f7d3fd9-0efd-4881-80c9-420bfdfc03fe",
+          "panelId": "c10dc58b-08b0-4110-8aff-d10e65d48501",
+          "origin": {
+            "x": -280,
+            "y": -900
+          },
+          "size": {
+            "width": 600,
+            "height": 500
+          },
+          "zOrder": 64,
+          "creationIndex": 8,
+          "animationState": "idle",
+          "dockLayout": {
+            "type": "tabs",
+            "id": "c5897a2f-620d-474e-8b6b-a3ad67addb20",
+            "panelIds": [
+              "c10dc58b-08b0-4110-8aff-d10e65d48501"
+            ],
+            "activeIndex": 0
+          }
+        }
+      },
+      "zoomLevel": 0.8025777591161425,
+      "viewportOffset": {
+        "x": 637.0954842814793,
+        "y": 924.9699640708774
+      }
+    }
+  }
+}

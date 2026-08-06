@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p /Users/jaikim/Documents/dev/WebGL/Practice_1_mint_point/shaders)"
+    ],
+    "additionalDirectories": [
+      "/Users/jaikim/Documents/dev/WebGL/Practice_1_mint_point"
+    ]
+  }
+}
