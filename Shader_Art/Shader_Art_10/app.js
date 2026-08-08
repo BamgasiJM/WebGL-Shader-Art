@@ -298,7 +298,7 @@ async function init() {
     mouseVelX = 0;
     mouseVelY = 0;
 
-    // ========== Pass 2: 캔버스, 속도장으로 배경 패턴 왜곡하여 표시 ==========
+    // ========== Pass 2: 캔버스, 속도장 크기로 잉크색 표시 ==========
     gl.useProgram(displayProgram);
     gl.bindVertexArray(displayVAO);
     gl.bindFramebuffer(gl.FRAMEBUFFER, null);

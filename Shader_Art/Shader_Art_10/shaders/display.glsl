@@ -15,7 +15,7 @@ void main() {
     vec2 vel = texture(u_velocityTexture, uv).rg;
 
     // 흰 배경
-    vec3 color = vec3(1.0);
+    vec3 color = vec3(0.6f, 0.83f, 0.83f);
 
     // 마우스로 그린 잉크색 (속도 정규화로 검게 변하는 현상 방지)
     float speed = length(vel);
