@@ -1,7 +1,14 @@
 {
   "permissions": {
     "allow": [
-      "Bash(mkdir -p /Users/jaikim/Documents/dev/WebGL/Practice_1_mint_point/shaders)"
+      "Bash(mkdir -p /Users/jaikim/Documents/dev/WebGL/Practice_1_mint_point/shaders)",
+      "Bash(curl -s http://localhost:8000/shaders/frag.glsl)",
+      "Read(//private/tmp/**)",
+      "Bash(npm init *)",
+      "Bash(npm install *)",
+      "Bash(npx playwright *)",
+      "Read(//tmp/**)",
+      "Bash(pkill -f \"http.server 8080\")"
     ],
     "additionalDirectories": [
       "/Users/jaikim/Documents/dev/WebGL/Practice_1_mint_point"
