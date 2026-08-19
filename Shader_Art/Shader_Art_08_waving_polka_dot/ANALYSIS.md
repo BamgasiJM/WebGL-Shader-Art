@@ -1,7 +1,7 @@
-# Shader Art 08: Waving Polka Dot - 기술 분석
+# Shader Art 08: Waving Polka Dot
 
 ## 개요
-이 프로젝트는 **그리드 기반 지오메트리**와 **정점 셰이더 변형(vertex deformation)**을 이용해 3D 물결 파동 효과를 만드는 작품입니다. 마우스가 움직일 때 반응하는 동적 메시 구조로, 진정한 3D 형태의 변형을 통해 입체감을 표현합니다.
+이 프로젝트는 **그리드 기반 지오메트리**와 **정점 셰이더 변형**을 이용해 3D 물결 파동 효과를 만드는 작품입니다.
 
 ---
 
@@ -17,7 +17,7 @@ const gridY = 30;  // 세로 분할 수
 for (let y = 0; y <= gridY; y++) {
   const v = y / gridY;
   const posY = -0.8 + v * 1.6;
-  
+
   for (let x = 0; x <= gridX; x++) {
     const u = x / gridX;
     const posX = -0.8 + u * 1.6;
@@ -30,7 +30,7 @@ for (let y = 0; y < gridY; y++) {
   for (let x = 0; x < gridX; x++) {
     const row1 = y * (gridX + 1);
     const row2 = (y + 1) * (gridX + 1);
-    
+
     // 첫 번째 삼각형
     indices.push(row1 + x, row2 + x, row1 + x + 1);
     // 두 번째 삼각형
@@ -51,7 +51,7 @@ for (let y = 0; y < gridY; y++) {
 (-0.8, -0.8)
 ```
 
-- **30×30 사각형 = 1800개 삼각형**
+- **30×30 사각형 : 900 x 2 = 1800개 삼각형**
 - 정점당 평균 4개 인덱스 (공유 정점)
 - EBO(Element Buffer Object) 사용으로 효율적 메모리 관리
 
@@ -61,23 +61,23 @@ for (let y = 0; y < gridY; y++) {
 void main() {
     // 1. UV 좌표 생성
     v_uv = (a_position.xy / 1.6) + 0.5;  // [-0.8, 0.8] → [0, 1]
-    
+
     vec4 pos = a_position;
-    
+
     // 2. 2D 파동 계산
     float dist = length(pos.xy);
     float waveX = sin(pos.x * 6.0 + u_time * 2.0);
     float waveY = cos(pos.y * 6.0 + u_time * 2.0);
     float radialWave = sin(dist * 8.0 - u_time * 3.0);
-    
+
     // 3. Y축 수직 출렁임
     pos.y += (waveX + waveY) * 0.05;
-    
+
     // 4. 깊이 기반 입체감 생성
     float depth = radialWave * 0.15;
     pos.y += depth * 0.5;
     pos.z = depth;
-    
+
     gl_Position = pos;
 }
 ```
@@ -138,23 +138,23 @@ void main() {
     // 1. 격자 생성
     float density = 15.0;  // 15×15 격자
     vec2 gridUV = v_uv * density;
-    
+
     // 2. 로컬 셀 좌표 (각 칸 내부: 0.0~1.0)
     vec2 localUV = fract(gridUV);
-    
+
     // 3. 원형 거리 계산
     vec2 center = vec2(0.5);
     float dist = distance(localUV, center);
-    
+
     // 4. 시간에 따른 반지름 변화 (맥동)
     float baseRadius = 0.25;
     float pulseSpeed = 2.0;
     float radius = baseRadius + 0.15 * sin(u_time * pulseSpeed);
-    
+
     // 5. 안티앨리어싱으로 부드러운 원 그리기
     float antialias = 0.02;
     float brightness = 1.0 - smoothstep(radius - antialias, radius + antialias, dist);
-    
+
     fragColor = vec4(vec3(brightness), 1.0);
 }
 ```
@@ -167,7 +167,7 @@ void main() {
 4. **맥동**: `sin(u_time * pulseSpeed)`로 반지름이 변함
 5. **Anti-aliasing**: `smoothstep()`으로 경계선을 부드럽게 처리
 
-**결과:** 
+**결과:**
 ```
 반지름 커짐 (sin 양수)  →  점이 커짐
 반지름 작아짐 (sin 음수) →  점이 작아짐
@@ -262,7 +262,7 @@ u_time 업데이트 (매 프레임)
 1. **3D 메시**: 정점 셰이더 변형으로 진정한 3D 지형 생성
 2. **교차 파동**: X, Y축 파동 + 원형 파동의 복합 효과
 3. **Polka Dot**: 프래그먼트 셰이더의 독립적 패턴 생성
-4. **이중 애니메이션**: 
+4. **이중 애니메이션**:
    - 정점 셰이더: 3D 메시 변형 (느림)
    - 프래그먼트 셰이더: 점 맥동 (빠름)
 
